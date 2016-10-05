@@ -9,9 +9,9 @@ export class PopoverComponent implements AfterViewChecked {
   public title: string;
   public content: any;
   public placement: string;
-  public top:string = '-1000px';
-  public left:string = '-1000px';
-  public display:string = 'block';
+  public top: string = '-1000px';
+  public left: string = '-1000px';
+  public display: string = 'block';
   private classMap: any;
   private visible: boolean = true;
   public popoverElementRef: any;
@@ -23,10 +23,8 @@ export class PopoverComponent implements AfterViewChecked {
   @ViewChild('child', { read: ViewContainerRef })
   private dynamicRef: any;
 
-
-  constructor(private positionService: PositionService, private element: ElementRef, private viewContainer: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver) {
-
-  }
+  constructor(private positionService: PositionService, private element: ElementRef,
+   private viewContainer: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver) {}
 
   setStyles() {
     let styles = {
@@ -37,15 +35,12 @@ export class PopoverComponent implements AfterViewChecked {
     };
     return styles;
   }
-
-
-
   /**
    * A method to get the position of popover by calculating top and left with
    * respect to host and target element.
    */
   public position(hostEl: ElementRef, targetEl: ElementRef) {
-     
+
     let p = this.positionService
       .positionElements(hostEl.nativeElement,
       targetEl.nativeElement.children[0],
