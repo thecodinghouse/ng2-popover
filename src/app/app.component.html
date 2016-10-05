@@ -1,0 +1,58 @@
+
+<div class="container">
+  <h1 class="text-center"> ng2-popover </h1>
+  <h3>Example 1: </h3>
+  <div class="panel panel-primary">
+    <div class="panel-body">
+      <form role="form">
+      <div class="form-group">
+        <label>Simple popover with title and content: </label>
+        <input type="text" value="hover on me!" popover=" Popover title"
+        popoverContent=" Popover content " popoverPlacement="bottom" class="form-control" />
+      </div>
+    </form>
+     </div>
+     </div>
+
+  <h3>Example 2: </h3>
+  <div class="panel panel-primary">
+    <div class="panel-body">
+    
+        <strong>
+            <a class="col-xs-6"
+               popover="Popover with dynamic component "
+               popoverPlacement="top"
+               [popoverComponent]="getDynamicInput()">
+                Hover to load dynamic component on poppver
+           </a>
+       </strong>
+       
+  </div>
+</div>
+
+<h3>Example 3: </h3>
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+      <form role="form">
+      <div class="form-group">
+        <label>Popover placement : </label>
+
+        <button type="button" class="btn btn-info" popover=" popover 2..."
+        popoverContent=" placement top...."  popoverPlacement="top">top</button>
+
+
+          <button type="button" class="btn btn-info" popover=" popover 2..."
+        popoverContent=" placement bottom"  popoverPlacement="bottom">bottom</button>
+
+      </div>
+    </form>
+     </div>
+      </div>
+
+
+
+</div>
+
+
+  

@@ -1,0 +1,7 @@
+<div class="popover" role="tooltip" [ngClass]="classMap"
+    [ngStyle]="setStyles()">
+    <div class="arrow" ></div>
+    <h2 class="popover-title " style="text-align:center">{{title}}</h2>
+    <div #child ></div>
+    <div *ngIf="!isInputComponent" class="popover-content" [innerHTML]=content></div>
+   </div>
