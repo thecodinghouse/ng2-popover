@@ -13,7 +13,6 @@ In addition to a simple popover with a title and content, **```ng2-popover```** 
   - `popoverComponent` (`?getPopoverComponent()`) - Binds `popoverComponent` to the response of method `getPopoverComponent()`
   - `popoverOnClick` (`?boolean`) - Show popover on click
   
-  
 ### Demo 
 To run the demo locally follow these steps :
 
