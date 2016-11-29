@@ -1,5 +1,4 @@
 
-
 ## An Angular2 popover component with bootstrap presets  
 
 **```ng2-popover```**  provides angular 2 popover using bootstrap css.
@@ -110,3 +109,4 @@ app.html :
   ```
 ### Reference
  - https://github.com/valor-software/ng2-bootstrap
+
