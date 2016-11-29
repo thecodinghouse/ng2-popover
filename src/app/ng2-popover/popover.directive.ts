@@ -15,21 +15,43 @@ export class PopoverDirective {
   @Input('popoverContent') public content: string;
   @Input('popoverPlacement') public placement:string = "top";
   @Input('popoverComponent') public innerComponent:any;
- 
-
+  @Input('popoverOnClick') public popoverOnClick: boolean = false;
 
   constructor(private viewContainer: ViewContainerRef,private componentFactoryResolver: ComponentFactoryResolver,
   private element:ElementRef
     ) {}
 
+  /*
+   * Event listeners
+   */
+  
+    @HostListener("click")
+    toggleClick(): void {
+        if (!this.popoverOnClick) return;
+        this.toggle();
+    }
+
+    @HostListener("focusin")
+    @HostListener("mouseenter")
+    showOnHover(): void {
+        if (this.popoverOnClick) return;
+        this.show();
+    }
+
+    @HostListener("focusout")
+    @HostListener("mouseleave")
+    hideOnHover(): void {
+        if (this.popoverOnClick) return;
+        this.hide();
+    }  
+
     
 
-  /**
-   * show() method to load the popoverContainer component by 'loadNextToLocation'
-   * Also creates binding of PopoverOptions type to pass into popoverContainer.
+  /*
+   * show() method to load the popoverContainer component using 'componentFactoryResolver'
+   * and returns PopoverContainerComponentRef as a componentRef.
    */
-  @HostListener('focusin', ['$event', '$target'])
-  @HostListener('mouseenter', ['$event', '$target'])
+  
   show() {
         if (this.visible) {
           return;
@@ -52,27 +74,27 @@ export class PopoverDirective {
         return this.PopoverContainerComponentRef;
     }
 
-  /**
-   * hide() to dispose the componentRef of popoverContainer component
-   * and also of the component loaded on popoverContainer(if exists)
+  /*
+   * hide() to destroys the componentRef of popoverContainer component.
+   */
+  hide() {
+      if (!this.visible) {
+        return;
+      }
+      this.visible = false;
+      this.PopoverContainerComponentRef.destroy();
+    
+  }
+  /*
+   * toggle() toggles between show() and hide() in case of click event.
    */
 
-@HostListener('mouseleave', ['$event', '$target'])
-@HostListener('focusout', ['$event', '$target'])
-hide() {
+  toggle(){
     if (!this.visible) {
-      return;
-    }
-    this.visible = false;
-    this.PopoverContainerComponentRef.destroy();
-   
-}
-
-
-
-
-
-
-
+            this.show();
+        } else {
+            this.hide();
+        }
+  }
 
 }

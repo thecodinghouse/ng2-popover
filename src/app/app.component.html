@@ -14,7 +14,7 @@
      </div>
      </div>
 
-  <h3>Example 2: </h3>
+  <h3>Example 2: PopOver on Hover(default)</h3>
   <div class="panel panel-primary">
     <div class="panel-body">
     
@@ -30,7 +30,24 @@
   </div>
 </div>
 
-<h3>Example 3: </h3>
+<h3>Example 3: Popover On click </h3>
+  <div class="panel panel-primary">
+    <div class="panel-body">
+    
+        <strong>
+            <a class="col-xs-6"
+               popover="Popover with dynamic component "
+               popoverPlacement="top"
+               [popoverOnClick]="true"
+               [popoverComponent]="getDynamicInput()">
+               Click to load dynamic component on poppver
+           </a>
+       </strong>
+       
+  </div>
+</div>
+
+<h3>Example 4: </h3>
 
 <div class="panel panel-primary">
     <div class="panel-body">
@@ -49,8 +66,6 @@
     </form>
      </div>
       </div>
-
-
 
 </div>
 
